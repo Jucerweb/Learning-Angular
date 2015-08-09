@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Http example</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="modules/app.js"></script>
+    <script type="text/javascript" src="controllers/firstCtrl.js">
+    </script>
+  </head>
+  <body ng-controller="firstCtrl as first">
+   <ul>
+      <li ng-repeat="post in first.posts">
+        <h3> {{ post.title }} </h3>
+        <p>{{post.body}}</p>   
+      </li>
+    </ul>
+  </body>
+</html>
