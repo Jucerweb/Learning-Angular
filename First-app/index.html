@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>
+
+  </title>
+  <script type="text/javascript" src="../angular.js"></script>
+  <script type="text/javascript" src="modules/app.js"></script>
+  <script type="text/javascript" src="controllers/firstCtrl.js"></script> 
+</head>
+<body>
+<div ng-controller="firstCtrl as first">
+ <input type="text" ng-model="first.nuevoComentario.comentario">
+ <input type="text" ng-model="first.nuevoComentario.username">
+ <button type="submit" ng-click="first.agregarComentarios()"> Guardar</button>
+ <span ng-bind="nombre"></span> 
+ <h3> Comentarios </h3>
+  <ul>
+    <li ng-repeat="comentario in first.comentarios">
+      {{ comentario.comentario }} - {{comentario.username}}
+    </li>
+  </ul>
+</div>
+</body>
+</html>
