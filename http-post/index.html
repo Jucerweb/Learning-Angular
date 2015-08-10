@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Http Post</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="modules/app.js"></script>
+    <script type="text/javascript" src="controllers/postCtrl.js"></script>
+
+  </head>
+  <body ng-controller="postCtrl as posts">
+    Title : <input type="text" ng-model="posts.newPost.title"><br>
+    Body: <textarea ng-model="posts.newPost.body"></textarea>
+    <button ng-click="posts.addPost()">Add Post</button>
+    <ul>
+      <li ng-repeat="post in posts.posts">
+        <h3> {{ post.title }}</h3>
+        <p> {{ post.body }}</p>
+      </li>
+    </ul>
+  </body>
+</html>
