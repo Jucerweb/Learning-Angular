@@ -1,0 +1,26 @@
+<html ng-app="toDoList">
+  <head>
+    <title>Example of To Do LIst</title>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script type="text/javascript" src="js/modules/toDoList.js"></script>
+    <script type="text/javascript" src="js/services/toDoSrv.js"></script>
+    <script type="text/javascript" src="js/controllers/toDoCtrl.js"></script>
+  </head>
+  <body ng-controller="toDoCtrl as toDo">
+    <ul>
+      <li ng-repeat="activity in toDo.todo">
+        {{ activity.description}} -
+        {{ activity.date | date: 'short'}}
+
+      </li>
+      <form ng-submit="toDo.addActv()">
+        <input type="text" ng-model="toDo.newActv.description">
+        <input type="datetime-local" ng-model="toDo.newActv.date">
+        <input type="submit" value="Save activity">
+      </form>
+      <button ng-click="toDo.clean()">Clean list</button>
+    </ul>
+
+  </body>
+</html>
