@@ -1,6 +1,6 @@
 (function iffe(angular){
   angular
-    .module('toDoList')
+    .module('toDoList.controller', ['toDoList.factory'])
     .controller('toDoCtrl', toDoCtrl);
 
   function toDoCtrl(todoFactory){
@@ -15,5 +15,4 @@
       vm.todo = todoFactory.todo;
     }
   }
-
 }(angular));

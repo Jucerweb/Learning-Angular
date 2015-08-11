@@ -1,16 +1,15 @@
 (function iife(angular){
   angular
-    .module('toDoList')
-    .factory('todoFactory', todoFactory);
+    .module('toDoList.factory', ['LocalStorageModule'])
+    .factory('todoFactory', ['localStorageService', todoFactory]);
 
   function todoFactory(localStorageService){
     var vm = {};
     vm.todo = [];
     if(localStorageService.get("angular-todoList")){
       vm.todo = localStorageService.get("angular-todoList");
-    }
-    else{
-      vm.todo = [];
+    } else {
+      localStorageService.set('angular-todoList', []);
     }
 
     vm.addActv = function addActv(newActv){

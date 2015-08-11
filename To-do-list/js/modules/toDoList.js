@@ -1,1 +1,3 @@
-angular.module('toDoList',['LocalStorageModule']);
+angular.module('toDoList', [
+  'toDoList.controller'
+]);
