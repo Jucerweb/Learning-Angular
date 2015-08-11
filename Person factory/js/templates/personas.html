@@ -1,0 +1,13 @@
+<form name="example" novalidate ng-submit="create.createPersona(example.$valid)">
+  <label>Nombre</label>
+  <input name="nombrePersona" type="text" ng-model="create.persona.nombre" required>
+  <span ng-show="example.nombrePersona.$invalid && !example.nombrePersona.$pristine">Requerido</span>
+  <label>Apellido</label>
+  <input name="apellidoPersona" type="text" ng-model="create.persona.apellido" required>
+  <span ng-show="example.apellidoPersona.$invalid && !example.apellidoPersona.$pristine">Requerido</span>
+  <button type="submit" >click</button>
+</form>
+<ul ng-repeat="persona in create.personas  | orderBy:'apellido'|filter:nameFilter ">
+   <li>{{::persona.nombre}} {{::persona.apellido}} <button ng-click="main.fullname(amigo)">click</button></li>
+
+</ul>

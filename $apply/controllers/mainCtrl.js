@@ -1,7 +1,7 @@
 (function iife(angular){
   angular
     .module('app.ctrl',[])
-    .controller('mainCtrl', mainCtrl);
+    .controller('mainCtrl', ['$scope', mainCtrl]);
 
   function mainCtrl($scope ){
     var vm = this;

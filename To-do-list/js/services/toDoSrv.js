@@ -4,22 +4,41 @@
     .factory('todoFactory', ['localStorageService', todoFactory]);
 
   function todoFactory(localStorageService){
-    var vm = {};
-    vm.todo = [];
-    if(localStorageService.get("angular-todoList")){
-      vm.todo = localStorageService.get("angular-todoList");
+    var factory = {};
+    factory.key = "angular-todoList";
+    if(localStorageService.get(factory.key)){
+      factory.activities = localStorageService.get(factory.key);
     } else {
-      localStorageService.set('angular-todoList', []);
+      factory.activities = [];
     }
 
-    vm.addActv = function addActv(newActv){
-      vm.todo.push(newActv);
-      localStorageService.set("angular-todoList", vm.todo);
+    factory.addActv = function addActv(newActv){
+      factory.activities.push(newActv);
+      factory.updaLocalStorage();
     }
-    vm.clean = function clean(){
-      vm.todo = [];
-      localStorageService.set("angular-todoList", vm.todo);
+
+    factory.updaLocalStorage = function updaLocalStorage(){
+      localStorageService.set(factory.key, factory.activities);
     }
-    return vm;
+
+    factory.clean = function clean(){
+      factory.activities = [];
+      factory.updaLocalStorage();
+      return factory.getAll();
+    }
+
+    factory.getAll = function getAll(){
+      return factory.activities;
+    }
+
+    factory.removeItem = function removeItem(item){
+      factory.activities = factory.activities.filter(function(activity){
+        return activity !== item ;
+      });
+      factory.updaLocalStorage();
+      return factory.getAll();
+    }
+
+    return factory;
   }
 }(angular));

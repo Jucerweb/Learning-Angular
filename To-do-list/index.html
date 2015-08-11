@@ -12,6 +12,7 @@
       <li ng-repeat="activity in toDo.todo">
         {{ activity.description}} -
         {{ activity.date | date: 'short'}}
+        <button ng-click="toDo.removeActv(activity)" > Delete </button>
 
       </li>
       <form ng-submit="toDo.addActv()">
@@ -21,6 +22,5 @@
       </form>
       <button ng-click="toDo.clean()">Clean list</button>
     </ul>
-    {{ toDo.nombre }}
   </body>
 </html>

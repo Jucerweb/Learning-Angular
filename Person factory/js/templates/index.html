@@ -1,0 +1,8 @@
+<div>
+  <input type="text" ng-model="nameFilter">
+  <span >{{::main.person.nombre}}</span>
+  <ul ng-repeat="amigo in main.person.amigos| orderBy:'apellido'|filter:nameFilter ">
+    <li>{{::amigo.nombre}} {{::amigo.apellido}} <button ng-click="main.fullname(amigo)">click</button></li>
+  </ul>
+  <button ng-click="main.showMessage('jucer')">Click</button>
+</div>
